@@ -22,7 +22,7 @@
     </head>
     <body class="antialiased">
         @extends('main')
-        @section
+        @section('conteudo')
         <div class="relative flex items-top justify-center min-h-screen bg-gray-100 dark:bg-gray-900 sm:items-center py-4 sm:pt-0">
             @if (Route::has('login'))
                 <div class="hidden fixed top-0 right-0 px-6 py-4 sm:block">
@@ -36,8 +36,26 @@
                         @endif
                     @endauth
                 </div>
+                @endsection
             @endif
 
-           
+            <h1>Lista de Carros</h1>
+
+    <ul>
+        <?php
+            // Array simulando dados de carros (pode ser substituído por consulta ao banco de dados)
+            $carros = [
+                ['marca' => 'Toyota', 'modelo' => 'Corolla', 'ano' => 2022],
+                ['marca' => 'Honda', 'modelo' => 'Civic', 'ano' => 2023],
+                ['marca' => 'Chevrolet', 'modelo' => 'Onix', 'ano' => 2021],
+                ['marca' => 'Ford', 'modelo' => 'Fusion', 'ano' => 2020]
+            ];
+
+            foreach ($carros as $carro) {
+                echo "<li><a href='detalhes.php?marca={$carro['marca']}&modelo={$carro['modelo']}'>{$carro['marca']} {$carro['modelo']}</a></li>";
+            }
+        ?>
+    </ul>
+</body>
     </body>
 </html>
