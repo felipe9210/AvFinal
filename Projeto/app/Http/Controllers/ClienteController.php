@@ -24,7 +24,7 @@ class ClienteController extends Controller
      */
     public function create()
     {
-        return view('layout.criar');
+        return view('layouts.criar');
     }
 
     /**
@@ -36,7 +36,8 @@ class ClienteController extends Controller
     public function store(Request $request)
     {
         // dd($request);
-        $request->all();
+       // $request->all();
+        Cliente::create(['nome'->$request->nome, 'modelo'->$request->modelo, 'marca'->$request->marca]);
     }
 
     /**

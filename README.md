@@ -6,7 +6,12 @@ php -r "if (hash_file('sha384', 'composer-setup.php') === 'dac665fdc30fdd8ec78b3
 php composer-setup.php
 php -r "unlink('composer-setup.php');"
 
-env
+php composer.phar install
+
+git config --global user.name "Fulano de Tal"
+git config --global user.email fulanodetal@exemplo.br
+
+
 APP_NAME=Laravel 
 APP_ENV=local 
 APP_KEY=base64:8sjgQ3/9ab1wfuBVqLW5jhqUlsglfZ25S6WCm+hSDlA= 
