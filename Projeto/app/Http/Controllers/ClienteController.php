@@ -37,18 +37,20 @@ class ClienteController extends Controller
     {
         // dd($request);
        // $request->all();
-        Cliente::create(['nome'->$request->nome, 'modelo'->$request->modelo, 'marca'->$request->marca]);
+        Cliente::create(['nome'=>$request->nome, 'modelo'=>$request->modelo, 'marca'=>$request->marca]);
+      return 'Cadastro concluido com sucesso';
     }
-
+    
     /**
      * Display the specified resource.
      *
      * @param  \App\Models\Cliente  $cliente
      * @return \Illuminate\Http\Response
      */
-    public function show(Cliente $cliente)
+    public function show(cliente $cliente)
     {
-        //
+        $cliente= cliente::findOrfail($id);
+        return view('layouts.show', ['cliente'=>$cliente]);
     }
 
     /**

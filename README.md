@@ -7,6 +7,8 @@ php composer-setup.php
 php -r "unlink('composer-setup.php');"
 
 php composer.phar install
+php artisan serve
+php artisan migrate
 
 git config --global user.name "Fulano de Tal"
 git config --global user.email fulanodetal@exemplo.br

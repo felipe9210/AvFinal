@@ -20,6 +20,7 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/criar', [ClienteController::class, 'create']);
 Route::post('/criar', [ClienteController::class, 'store'])->name ('clientes_store');
+Route::get('/ver/{id}', [ClienteController::class, 'show']);
 
 Route::get('/dashboard', function () {
     return view('dashboard');
