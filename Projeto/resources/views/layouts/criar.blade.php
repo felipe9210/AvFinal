@@ -6,10 +6,10 @@
     <title>Cadastrar Clientes</title>
 </head>
 <body>
-    <form action="{{route('clientes_store')}}" metod='post'>
+    <form action="{{route('clientes_store')}}" method='post'>
         @csrf
         <label>Nome</label>
-        <input type="text" name='nome' id='nome'>
+        <input type="text" name="nome" id="nome">
         
         <label for="text">modelo</label>
         <input type="text" name="modelo" id="modelo">

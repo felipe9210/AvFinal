@@ -35,7 +35,7 @@ class ClienteController extends Controller
      */
     public function store(Request $request)
     {
-        // dd($request);
+      //  dd($request);
        // $request->all();
         Cliente::create(['nome'=>$request->nome, 'modelo'=>$request->modelo, 'marca'=>$request->marca]);
       return 'Cadastro concluido com sucesso';
@@ -47,7 +47,7 @@ class ClienteController extends Controller
      * @param  \App\Models\Cliente  $cliente
      * @return \Illuminate\Http\Response
      */
-    public function show(cliente $cliente)
+    public function show($id)
     {
         $cliente= cliente::findOrfail($id);
         return view('layouts.show', ['cliente'=>$cliente]);
@@ -59,9 +59,10 @@ class ClienteController extends Controller
      * @param  \App\Models\Cliente  $cliente
      * @return \Illuminate\Http\Response
      */
-    public function edit(Cliente $cliente)
+    public function edit($id)
     {
-        //
+        $cliente= cliente::findOrfail($id);
+        return view('layouts.editar', ['cliente'=>$cliente]);
     }
 
     /**

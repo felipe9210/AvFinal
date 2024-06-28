@@ -22,6 +22,10 @@ Route::get('/criar', [ClienteController::class, 'create']);
 Route::post('/criar', [ClienteController::class, 'store'])->name ('clientes_store');
 Route::get('/ver/{id}', [ClienteController::class, 'show']);
 
+Route::get('/editar/{id}', [ClienteController::class, 'edit']);
+Route::post('/editar/{id}', [ClienteController::class, 'update'])->name ('alterar_produto');
+
+
 Route::get('/dashboard', function () {
     return view('dashboard');
 })->middleware(['auth'])->name('dashboard');
