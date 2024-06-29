@@ -6,6 +6,11 @@
     <title>Document</title>
 </head>
 <body>
-<form action="{{route('alterar_produto', ['id'=>$cliente->id])}}" method='post'>
+<form action="{{route('alterar_cliente', ['id'=>$cliente->id])}}" method='post'>
+    <label>cliente</label>
+    <input type="text" name="cliente" id="cliente" value="{{$cliente->nome}}">
+    <input type="text" name="cliente" id="cliente" value="{{$cliente->marca}}">
+    <input type="text" name="cliente" id="cliente" value="{{$cliente->modelo}}">
+
 </body>
 </html>

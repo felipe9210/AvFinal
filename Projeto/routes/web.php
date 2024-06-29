@@ -23,8 +23,10 @@ Route::post('/criar', [ClienteController::class, 'store'])->name ('clientes_stor
 Route::get('/ver/{id}', [ClienteController::class, 'show']);
 
 Route::get('/editar/{id}', [ClienteController::class, 'edit']);
-Route::post('/editar/{id}', [ClienteController::class, 'update'])->name ('alterar_produto');
+Route::post('/editar/{id}', [ClienteController::class, 'update'])->name ('alterar_cliente');
 
+Route:: get('layouts/excluir/{id}', [ClienteController::class, 'delete']);
+Route:: post('layouts/excluir/{id}', [ClienteController::class, 'destroy'])->name('excluir_cliente');
 
 Route::get('/dashboard', function () {
     return view('dashboard');

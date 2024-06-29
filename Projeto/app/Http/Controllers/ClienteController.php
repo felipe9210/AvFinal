@@ -72,9 +72,12 @@ class ClienteController extends Controller
      * @param  \App\Models\Cliente  $cliente
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Cliente $cliente)
+    public function update(Request $request, $id)
     {
-        //
+        $cliente= cliente::findOrfail($id);
+        Cliente::update(['nome'=>$request->nome, 'modelo'=>$request->modelo, 'marca'=>$request->marca]);
+        return "Cliente atualizado";
+
     }
 
     /**
@@ -83,8 +86,14 @@ class ClienteController extends Controller
      * @param  \App\Models\Cliente  $cliente
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Cliente $cliente)
+    public function destroy(Cliente $id)
     {
-        //
+        $cliente->delete();
+        return 'cliente deletado';
+    }
+    public function delete(Cliente $id)
+    {
+        $cliente= Cliente::findOrFail($id);
+        return view('layouts.deletar',['cliente'=>$cliente]);
     }
 }
